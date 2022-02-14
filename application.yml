@@ -1,0 +1,154 @@
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        errorThresholdPercentage: 50
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    getCarrier:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    getKey:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+  threadpool:
+    getCarrier:
+      coreSize: 50
+      maximumSize: 50
+    getKey:
+      coreSize: 50
+      maximumSize: 50
+drmendpoints:
+  enabled: true
+  carrieralias:
+    IN_aircel: airtel
+    IN_airtel: airtel
+    MY_maxis: maxis
+    IN_india_vodafone: vodafone
+    MY_celcom: celcom
+    IN_idea: idea
+    AE_me_du: du_uae
+    SA_stc: stc
+    AE_etisalat: etisalat
+    EG_etisalat_egypt: etisalat_egypt
+    EG_vodafone_egypt: vodafoneegypt
+    MY_digi_malaysia: digi
+    KW_ooredoo: ooredoo_kuwait
+    OM_ooredoo_oman: ooredoo_oman
+    MY_umobile: umobile
+    KW_viva_kuwait: vivakuwait
+    QA_ooredoo_qatar: ooredoo_qatar
+    OM_omantel: omantel
+    KW_zain_kuwait: zainkw
+    ZA_vodacom: vodacom
+    MM_ooredoo_myanmar: ooredoo
+    ID_smartfren_indonesia: smartfren_indonesia
+    IQ_zain_iraq: zain
+    IQ_asiacell: asiacell
+    MM_mpt_myanmar: mpt
+    BH_zain_bahrain: zain_bahrain
+    MM_myanmarnet: myanmarnet
+    MM_telenor_myanmar: telenor
+    MM_mytel_mm: mytel
+schedulers:
+  hystrixStatisticLog:
+    initialDelayInMilliseconds: 2000
+    fixedDelayInMilliseconds: 60000
+---
+
+spring:
+  profiles: prod
+common:
+  carrier:
+    detectionApi:  http://ViuApiProdV2.eba-ptf5qxyp.ap-southeast-1.elasticbeanstalk.com/api/v3/workflow/carrier
+    xClientAuth: b6fea2dd3d110b12fbd23d7ab8cd0ba3
+    enabledCountries: MM,ID,MY,ZA
+drmendpoints:
+  enabled: false
+  whitelist:
+multicdn:
+  enabled: true
+  rollout: 100
+  prioritylist:
+    - all,f4361da1-945e-4cda-b1b0-d88a6b5d6094,all,all,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,telkomsel,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,smartfren_indonesia,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,indosat,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,xl,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,digi,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,maxis,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,umobile,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,celcom,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MM,ooredoo,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MM,mpt,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MM,mytel,akamaieip,vuclip-eip.akamaized.net/,100
+    - app,all,IN,all,akamai,gcpvuclip-a.akamaihd.net/,100
+    - web,all,IN,all,akamai,gcpvuclip-a.akamaihd.net/,100
+    - all,all,all,all,akamai,gcpvuclip-a.akamaihd.net/,100
+
+---
+
+spring:
+  profiles: staging
+drmendpoints:
+  enabled: false
+  whitelist:
+multicdn:
+  enabled: true
+  rollout: 100
+  prioritylist:
+    - all,f4361da1-945e-4cda-b1b0-d88a6b5d6094,all,all,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,IN,all,gcp,gcpcdn.viu.com/,100
+    - all,all,ID,telkomsel,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,smartfren_indonesia,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,indosat,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,ID,xl,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,digi,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,maxis,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,umobile,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MY,celcom,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MM,ooredoo,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MM,mpt,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,MM,mytel,akamaieip,vuclip-eip.akamaized.net/,100
+    - all,all,all,all,akamai,gcpvuclip-a.akamaihd.net/,100
+common:
+  carrier:
+    detectionApi:  http://viu-e2e-e6.stg-viuapi.io/api/v3/workflow/carrier
+    xClientAuth: b6fea2dd3d110b12fbd23d7ab8cd0ba3
+    enabledCountries: MM,ID,MY,ZA
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        errorThresholdPercentage: 50
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    getCarrier:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    getKey:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+  threadpool:
+    getCarrier:
+      coreSize: 50
+      maximumSize: 50
+    getKey:
+      coreSize: 50
+      maximumSize: 50
+---
+
+spring:
+  profiles: dev
