@@ -15,4 +15,4 @@ app:
 spring:
   profiles: dev
 app:
-  name: himanshu_dev
+  name: himanshu_dev_newproperty
