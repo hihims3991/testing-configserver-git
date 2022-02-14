@@ -1,8 +1,3 @@
-app:
-  name: himanshu_dev
-
----
-
 spring:
   profiles: prod
 app:
@@ -11,6 +6,13 @@ app:
 ---
 
 spring:
-  profiles: prod
+  profiles: staging
 app:
   name: himanshu_staging
+  
+---
+
+spring:
+  profiles: dev
+app:
+  name: himanshu_dev
