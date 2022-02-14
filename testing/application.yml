@@ -1,0 +1,254 @@
+recommendation:
+  relatedApi:
+    enabled: false
+    percentThreshold: 5
+    recommendNumber: 2
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, repeat, 11, 3
+  trendingApi:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 11, 3
+
+---
+
+spring:
+  profiles: prod
+recommendation:
+  relatedApi:
+    enabled: false
+    percentThreshold: 1
+    recommendNumber: 1
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, repeat, 3|4|5|6|7|8|9|10|11|12, 13
+      - IN, all, 19, 3
+      - ZA, all, 19, 3
+      - MM, all, 19, 3
+      - ID, all, 5, 3
+  trendingApi:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 14
+      - ID, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 4
+      - IN, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 8
+      - ZA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 6
+      - MM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 15
+      - EG, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - SA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - AE, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - OM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - KW, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - QA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - BH, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - IQ, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - JO, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+  autoMLApi:
+    enabled: false
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 0, 13
+      - IN, all, 0, 9
+      - MM, all, 0, 4
+  personalRecommendation:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - IN, all, 10|11|12|13, 5
+  colloborativefilterApi:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 13
+      - MM, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 4
+      - IN, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - ID, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - EG, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - SA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - AE, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - OM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - KW, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - QA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - BH, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - IQ, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - JO, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - ZA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 2
+  becauseYouWatchedFilterApi:
+    enabled: true
+    enablePercentCompletion: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 19
+      - ID, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 7
+      - IN, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 10
+      - MM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 8
+      - KW, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - EG, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - SA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - AE, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - OM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - QA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - BH, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - IQ, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - JO, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - ZA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+  moments:
+    enabled: false
+    countries:
+    #  - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - IN, all, 0, 4
+      - MY, all, 0|14|15|16|17, 8
+      - ID, all, 0, 5
+      - SA, all, 0|1|2|3|4|5, 3
+      - AE, all, 0|1|2|3|4|5, 3
+      - KW, all, 0|1|2|3|4|5, 3
+      - ZA, all, 0|1|2|3|4|5|6|7|8|9|10|11, 4
+      - JO, all, 0|1|2|3|4|5, 4
+      - BH, all, 0|1|2|3|4|5, 4
+      - OM, all, 0|1|2|3|4|5, 4
+      - QA, all, 0|1|2|3|4|5, 4
+      - IQ, all, 0|1|2|3|4|5, 4
+      - EG, all, 0|1|2|3|4|5, 4
+shuffleProperties:
+  shuffleConfig:
+    # country , shuffleEnabled , restrcited rows , user_segment
+    - IN,false,0,3|5|15
+    - MY,false,0|8|14|19,0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19
+    - AE,false,0|8,0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19
+    - MM,false,0,3|4 
+shuffleApi: http://viu-personization.vuclip.com/reordering/api/rows?platform={0}&contentFlavour={1}&appVer={2}&cCode={3}&geo={4}&userContentPreference={5}&userId={6}&userSegment={7}&appLang={8}
+recommend:
+  recommendationPersonalApi:  http://viu-content-recommendations-prod.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/customPersonal?appid={0}&fmt=json&languageid={1}&platform=app&userid={2}&ccode={3}&geo={4}&id={5}&ipAddress={6}&regionid={7}&contentCountry={8}&appver=2.0&contentFlavour={9}&userSegment={10}
+  becauseyouwatchedapi: http://viu-content-recommendations-prod.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/relatedMetaInternal?appid={0}&fmt=json&languageid={1}&platform=app&userid={2}&ccode={3}&geo={4}&id={5}&ipAddress={6}&regionid={7}&contentCountry={8}&appver=2.0&contentFlavour={9}&userSegment={10}&recentlyWatchedList={11}
+moments_filter:
+  path: $..item[*]
+  attributes: tur
+  format: json
+s3_filter:
+  path: /page/body/category/container
+  attributes: tur
+  format: xml
+---
+
+spring:
+  profiles: staging
+moments_filter:
+  path: $..item[*]
+  attributes: music_driector,mood
+  format: json
+s3_filter:
+  path: /page/body/category/container
+  attributes: music_driector,mood
+  format: xml
+recommendation:
+  relatedApi:
+    enabled: false
+    percentThreshold: 1
+    recommendNumber: 1
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, repeat, 3|4|5|6|7|8|9|10|11|12, 13
+      - IN, all, 19, 3
+      - ZA, all, 19, 3
+      - MM, all, 19, 3
+      - ID, all, 5, 3
+  trendingApi:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 14
+      - ID, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 4
+      - IN, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 8
+      - ZA, all, 19, 2
+      - MM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 15
+      - EG, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - SA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - AE, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - OM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - KW, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - QA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - BH, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - IQ, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - JO, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+  autoMLApi:
+    enabled: false
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 0, 13
+      - IN, all, 0, 9
+      - MM, all, 0, 4
+  personalRecommendation:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - IN, all, 0|3, 6
+  colloborativefilterApi:
+    enabled: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 13
+      - MM, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 4
+      - IN, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 9
+      - ID, all, 2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 5
+      - EG, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - SA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - AE, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - OM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - KW, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - QA, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - BH, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - IQ, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - JO, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 1
+      - ZA, all, 0, 3
+  becauseYouWatchedFilterApi:
+    enabled: true
+    enablePercentCompletion: true
+    countries:
+      # - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 19
+      - ID, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 7
+      - IN, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 10
+      - MM, all, 0|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19, 8
+      - KW, all, all, 9
+      - EG, all, 15|16|17|18|19, 9
+      - SA, all, 15|16|17|18|19, 9
+      - AE, all, 15|16|17|18|19, 9
+      - OM, all, 15|16|17|18|19, 9
+      - QA, all, 15|16|17|18|19, 9
+      - BH, all, 15|16|17|18|19, 9
+      - IQ, all, 15|16|17|18|19, 9
+      - JO, all, 15|16|17|18|19, 9
+  moments:
+    enabled: true
+    countries:
+      #  - country code(IN/all), usertype(newuser/repeat/all), user-segments(1|20|all), position
+      - MY, all, all, 5
+      - KW, all, all, 3
+      - SA, all, all, 3
+      - AE, all, all, 3
+      - ID, all, 0, 5
+      - ZA, all, 0|1|2|3, 4
+      - MM, all, all, 5
+      - IN, all, all, 3
+      - IQ, all, all, 6
+      - JO, all, all, 6
+shuffleProperties:
+  shuffleConfig:
+      # country , shuffleEnabled , restrcited rows , user_segment
+    - IN,false,0,3|5|15
+    - ID,true,0,3|5|15
+    - MY,false,0,0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19
+    - AE,true,0,0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19
+    - MM,true,0,0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19
+shuffleApi: http://viu-personization.vuclip.com/reordering/api/rows?platform={0}&contentFlavour={1}&appVer={2}&cCode={3}&geo={4}&userContentPreference={5}&userId={6}&userSegment={7}&appLang={8}
+recommend:
+  related: https://prod-in.viu.com/api/search/related?carrierid=0&id={0}&appid={1}&appver={2}&ccode={3}&compressed=true&countryCode={4}&devicecountry={5}&devicetimezone=%2B0700&geo={6}&iid={7}&languageid={8}&platform=app&regionid=all&userid={9}&ver=1.0&vuserid={10}
+  trending: http://viu-content-recommendation-staging.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/api/getTrendingPlaylistIds/APP/{0}
+  recommendationautoml: http://viu-content-recommendation-staging.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/related?appid={0}&fmt=json&languageid={1}&platform=app&userid={2}&ccode={3}&geo={4}&id={5}&ipAddress={6}&regionid={7}&contentCountry={8}&contentFlavour={9}&userSegment={10}
+  recommendationcollaborativefilterapi: http://viu-content-recommendation-staging.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/relatedInternal?appid={0}&fmt=json&languageid={1}&platform=app&userid={2}&ccode={3}&geo={4}&id={5}&ipAddress={6}&regionid={7}&contentCountry={8}&appver=2.0&contentFlavour={9}&userSegment={10}
+  recommendationPersonalApi:  http://viu-content-recommendation-staging.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/customPersonal?appid={0}&fmt=json&languageid={1}&platform=app&userid={2}&ccode={3}&geo={4}&id={5}&ipAddress={6}&regionid={7}&contentCountry={8}&appver=2.0&contentFlavour={9}&userSegment={10}
+  becauseyouwatchedapi: http://viu-content-recommendation-staging.ap-southeast-1.elasticbeanstalk.com/viu_recommendations/relatedMetaInternal?appid={0}&fmt=json&languageid={1}&platform=app&userid={2}&ccode={3}&geo={4}&id={5}&ipAddress={6}&regionid={7}&contentCountry={8}&appver=2.0&contentFlavour={9}&userSegment={10}&recentlyWatchedList={11}
+  momentsCollaborativeFilterApi: http://a5e9bc4d510db11eaa1930e6696c760c-447682078.us-east-1.elb.amazonaws.com/api/content/v1/ql
