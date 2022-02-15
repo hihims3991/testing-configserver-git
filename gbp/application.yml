@@ -8,7 +8,7 @@ app:
 spring:
   profiles: staging
 app:
-  name: himanshu_staging_from_yml
+  name: himanshu_staging_from_yml_new
   
 ---
 
