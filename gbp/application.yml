@@ -1,7 +1,7 @@
 spring:
   profiles: prod
 app:
-  name: himanshu_prod_from_yml_new
+  name: himanshu_prod_from_yml_new_properties
 
 ---
 
